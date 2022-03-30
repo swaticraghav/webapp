@@ -1,23 +1,29 @@
-package com.servelt.examples;
+package com.servlet.examples;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.servlet.pojo.Student;
+
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HelloWorldServlet
+ * Servlet implementation class MVCControllerServlet
  */
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet("/mvc/controllerServlet")
+public class MVCControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public HelloWorldServlet() {
+	public MVCControllerServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,13 +37,17 @@ public class HelloWorldServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 
-		PrintWriter out = response.getWriter();
+		List<Student> list = new ArrayList<>();
+		list.add(new Student("Swati", 123, "s@s.com"));
+		list.add(new Student("Garg", 124, "g@g.com"));
+		list.add(new Student("Neha", 125, "n@n.com"));
+		
+		request.setAttribute("students_list", list);
+		
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/mvcView.jsp");
+		
+		requestDispatcher.forward(request, response);
 
-		out.println("<html><body>");
-		out.println("<h1>Hello World</h1>");
-		out.println("</html></body>");
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

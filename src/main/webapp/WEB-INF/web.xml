@@ -19,4 +19,14 @@
     <servlet-name>HelloWorldServlet</servlet-name>
     <url-pattern>/HelloWorldServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MVCControllerServlet</display-name>
+    <servlet-name>MVCControllerServlet</servlet-name>
+    <servlet-class>com.servelt.examples.MVCControllerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MVCControllerServlet</servlet-name>
+    <url-pattern>/MVCControllerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
