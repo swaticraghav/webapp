@@ -2,31 +2,54 @@ package com.servlet.pojo;
 
 public class Student {
 
-	private String name;
-	private int id;
+	private String firstName;
+	private String lastName;
+	private int studentID;
 	private String email;
 
-	public Student(String name, int id, String email) {
+	public Student(String firstName, String lastName, String email) {
 		super();
-		this.name = name;
-		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 	}
 
-	public String getName() {
-		return name;
+	public Student(String firstName, String lastName, int studentID, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.studentID = studentID;
+		this.email = email;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	@Override
+	public String toString() {
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", studentID=" + studentID + ", email="
+				+ email + "]";
 	}
 
-	public int getId() {
-		return id;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getStudentID() {
+		return studentID;
+	}
+
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
 	}
 
 	public String getEmail() {
